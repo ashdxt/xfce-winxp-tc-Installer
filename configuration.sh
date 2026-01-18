@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #manual installation
 
 #UI THEME 
@@ -32,9 +34,12 @@ xfconf-query --create -c 'xsettings' -p '/Gtk/CursorThemeName' --type 'string' -
 
 #SHELL SETUP
 
-#TO DO
+#TO DO auto startup services
 #xfce4-panel --quit
 #xfdesktop --quit
+
+
+#TO DO greeter services config
 
 xfconf-query --create -c 'xfce4-keyboard-shortcuts' -p '/commands/custom/<Super>r' --type 'string' --set 'run'
 
@@ -43,4 +48,7 @@ xfconf-query --create -c 'xfce4-keyboard-shortcuts' -p '/commands/custom/<Alt>F1
 
 sudo apt install -y xcape
 xcape -e 'Super_L=Alt_L|F1'
+
+
+
 

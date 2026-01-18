@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+
 github_link="https://github.com/rozniak/xfce-winxp-tc"
 OUTPUT_DIR="$(pwd)/xptc/deb"
 
@@ -9,7 +12,7 @@ git clone $github_link &
 clone_pid=$!
 
 sudo apt install -y bash cmake coreutils fakeroot gcc make pkg-config python3 
-wait $clone_pid
+wait $clone_pid 
 
 cd xfce-winxp-tc/packaging
  
