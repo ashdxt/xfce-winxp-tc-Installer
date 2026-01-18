@@ -9,7 +9,7 @@ work in progress
 
 #TO DO bootloader configuration
 
-#TO DO lightdm debugging 
+#TO DO change wallpaper
 
 
 
