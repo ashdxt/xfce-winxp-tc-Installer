@@ -6,5 +6,7 @@ aim to create a 1 click installer for https://github.com/rozniak/xfce-winxp-tc t
 work in progress
 
 #TO DO auto startup services
+
 #TO DO bootloader configuration
+
 #TO DO lightdm debugging 
