@@ -29,18 +29,54 @@ xfconf-query --create -c 'xfwm4' -p '/general/show_popup_shadow' --type 'bool' -
 xfconf-query --create -c 'xfwm4' -p '/general/show_dock_shadow' --type 'bool' --set 'false'
 xfconf-query --create -c 'xfwm4' -p '/general/show_frame_shadow' --type 'bool' --set 'false'
 
-#Cursor themes selectable under XFCE Settings > Mouse and Touchpad > Theme 
+#edits Cursor themes selectable under XFCE Settings > Mouse and Touchpad > Theme 
 xfconf-query --create -c 'xsettings' -p '/Gtk/CursorThemeName' --type 'string' --set 'standard-no-shadow'
 
 #SHELL SETUP
 
-#TO DO auto startup services
-#xfce4-panel --quit
-#xfdesktop --quit
+#autostartup services
+xfce4-panel --quit
+xfdesktop --quit
+
+#makes sure there is an actual autostart directory
+mkdir -p ~/.config/autostart
+
+#sets the wintc desktop and wintc taskband as autostart services
+
+cat > ~/.config/autostart/wintc-desktop.desktop <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=WinTC Desktop
+Exec=wintc-desktop
+OnlyShowIn=XFCE;
+Terminal=false
+StartupNotify=false
+EOF
+
+cat > ~/.config/autostart/wintc-taskband.desktop <<'EOF'
+[Desktop Entry]
+Type=Application
+Name=WinTC Taskband
+Exec=wintc-taskband
+OnlyShowIn=XFCE;
+Terminal=false
+StartupNotify=false
+EOF
 
 
-#TO DO greeter services config
+#sets wintc-logonui as the greeter service (uses a drop in config file) 
+#see documentation here https://github.com/canonical/lightdm 
+if [ -d /etc/lightdm/lightdm.conf.d ]; then
 
+    sudo tee /etc/lightdm/lightdm.conf.d/50-winxptc.conf >/dev/null <<'EOF'
+[Seat:*]
+greeter-session=wintc-logonui
+EOF
+
+fi
+
+
+#keyboard shortcut
 xfconf-query --create -c 'xfce4-keyboard-shortcuts' -p '/commands/custom/<Super>r' --type 'string' --set 'run'
 
 
@@ -48,6 +84,12 @@ xfconf-query --create -c 'xfce4-keyboard-shortcuts' -p '/commands/custom/<Alt>F1
 
 sudo apt install -y xcape
 xcape -e 'Super_L=Alt_L|F1'
+
+#Sound theme configurable under XFCE Settings > Settings Editor > xsettings 
+xfconf-query -c xsettings -p /Net/EnableEventSounds -n -t bool -s true 
+xfconf-query -c xsettings -p /Net/EnableInputFeedbackSounds -n -t bool -s true
+
+xfconf-query -c xsettings -p /Net/SoundThemeName -n -t string -s "Windows XP Default"
 
 
 
