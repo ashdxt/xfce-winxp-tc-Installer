@@ -5,7 +5,9 @@ aim to create a 1 click installer for https://github.com/rozniak/xfce-winxp-tc t
 
 TLDR How do I use this to install winxp-tc
 run the following in your terminal after downloading the shell scripts
-```chmod +x configuration.sh winxp_installer.sh
+```
+chmod +x configuration.sh winxp_installer.sh
+
 ./winxp_installer.sh; ./configuration.sh
 ```
 
