@@ -5,9 +5,8 @@ aim to create a 1 click installer for https://github.com/rozniak/xfce-winxp-tc t
 
 work in progress
 
-#TO DO auto startup services
 
-#TO DO bootloader configuration
+#TO DO test bootloader configuration
 
 #TO DO change wallpaper
 
@@ -35,17 +34,17 @@ UI theme ✅ (all done)
         Uncheck Show shadows under regular windows
     Cursor themes selectable under XFCE Settings > Mouse and Touchpad > Theme
 
-Shell setup
+Shell setup ✅  (all done)
 
     Close XFCE's panel and desktop¬ ✅
         Open a terminal
         xfce4-panel --quit
         xfdesktop --quit
     Add shell programs to session startup under XFCE Settings > Session and Startup > Application Autostart
-        Add new¬❌
+        Add new¬✅ 
             Name: WinTC Desktop (up to you)
             Command: wintc-desktop
-        Add new¬❌
+        Add new¬✅ 
             Name: WinTC Taskband (up to you) 
             Command: wintc-taskband
     Replace Win+R shortcut under XFCE Settings > Keyboard > Application Shortcuts✅
@@ -59,7 +58,7 @@ Shell setup
         Install xcape on your distro
         Run xcape -e 'Super_L=Alt_L|F1' (doing it this way means the Windows key activates on release, otherwise it would block your ability to do Win+R)
 
-Sound theme ❌
+Sound theme ✅ 
 
     Sound theme configurable under XFCE Settings > Settings Editor > xsettings
         Check EnableEventSounds
